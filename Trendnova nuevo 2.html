@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendNova | Moda urbana premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: rgba(14,21,42,0.78);
+      --panel: rgba(17,25,48,0.82);
+      --panel-strong: rgba(22,32,60,0.95);
+      --line: rgba(255,255,255,0.08);
+      --text: #f5f7ff;
+      --muted: #9aa4c7;
+      --primary: #56f0c4;
+      --primary-strong: #1cc8a0;
+      --secondary: #ff8e53;
+      --accent: #7aa2ff;
+      --logo-blue: #3b82f6;
+      --logo-dark-blue: #0f172a;
+      --logo-text-dark: #070b14;
+      --shadow: 0 24px 80px rgba(0,0,0,0.38);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max-width: 1280px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;font-family:"Manrope",sans-serif;color:var(--text);background:var(--bg);background-image:radial-gradient(circle at top left,rgba(122,162,255,0.15),transparent 32%),radial-gradient(circle at top right,rgba(86,240,196,0.12),transparent 28%),linear-gradient(180deg,#0a0f1d 0%,#070b14 100%);overflow-x:hidden}
+    body::before,body::after{content:"";position:fixed;width:34rem;height:34rem;border-radius:50%;filter:blur(90px);opacity:.15;pointer-events:none;z-index:-1}
+    body::before{top:-8rem;left:-10rem;background:#5df0c6}
+    body::after{right:-8rem;bottom:5rem;background:#ff8e53}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%}
+    ul{list-style:none}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    .container{width:min(var(--max-width),calc(100% - 2rem));margin:0 auto}
+    section{scroll-margin-top:110px}
+    .eyebrow,.pill,.tag{display:inline-flex;align-items:center;gap:.55rem;padding:.55rem .9rem;border:1px solid rgba(255,255,255,0.1);border-radius:999px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:#d4ddff;background:rgba(255,255,255,0.04);backdrop-filter:blur(12px)}
+    .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.75rem;padding:1rem 2rem;border-radius:99px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#08111d;font-weight:800;font-size:1rem;letter-spacing:.03em;transition:all .3s ease;box-shadow:0 12px 30px rgba(86,240,196,.25)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 15px 35px rgba(86,240,196,.4)}
+    .btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.75rem;padding:1rem 2rem;border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--text);font-weight:700;font-size:1rem;transition:all .3s ease;backdrop-filter:blur(10px)}
+    .btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)}
+    .icon-btn{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid var(--line);transition:all .2s ease;position:relative}
+    .icon-btn:hover{background:rgba(255,255,255,.1);color:var(--primary)}
+    .badge{position:absolute;top:-5px;right:-5px;background:var(--secondary);color:#fff;font-size:.7rem;font-weight:800;width:1.25rem;height:1.25rem;display:grid;place-items:center;border-radius:50%;box-shadow:0 4px 10px rgba(255,142,83,.4);transition:transform .2s ease}
+    .topbar{border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);backdrop-filter:blur(20px)}
+    .topbar .container{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.75rem 0;color:var(--muted);font-size:.85rem}
+    .topbar-right{display:flex;gap:1.5rem}
+    .topbar-right a:hover{color:var(--primary)}
+    .topbar strong{color:var(--primary)}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,16,32,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.15rem 0}
+    .brand{display:flex;align-items:center;gap:.9rem;min-width:220px}
+    .brand-mark{width:3rem;height:3rem;display:grid;place-items:center;border-radius:12px;font-family:"Space Grotesk",sans-serif;font-weight:800;font-size:1.3rem;background:linear-gradient(135deg,var(--logo-blue),var(--logo-dark-blue));color:var(--logo-text-dark);box-shadow:0 8px 20px rgba(59,130,246,.3);border:1px solid rgba(125,211,252,.2)}
+    .brand h1{font-family:"Space Grotesk",sans-serif;font-size:1.3rem;line-height:1;letter-spacing:-.02em;color:#fff}
+    .brand h1 span{color:var(--logo-blue)}
+    .nav-links{display:flex;align-items:center;justify-content:center;flex:1;gap:2.5rem;color:#d9def5;font-weight:500;font-size:.95rem}
+    .nav-links a{position:relative;padding:.5rem 0;transition:color .25s ease}
+    .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;transform:scaleX(0);transform-origin:right;background:linear-gradient(90deg,var(--primary),var(--logo-blue));transition:transform .3s cubic-bezier(.65,0,.35,1)}
+    .nav-links a:hover,.nav-links a.active{color:var(--text)}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+    .nav-actions{display:flex;align-items:center;gap:1rem}
+    .search-box{display:flex;align-items:center;gap:.65rem;min-width:240px;padding:.65rem 1.2rem;border-radius:99px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:var(--text);transition:all .3s ease}
+    .search-box:focus-within{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);box-shadow:0 0 0 4px rgba(86,240,196,.1)}
+    .search-box input{background:transparent;border:none;color:inherit;font-family:inherit;font-size:.9rem;width:100%;outline:none}
+    .search-box input::placeholder{color:var(--muted)}
+    .mobile-menu-btn{display:none}
+    .hero{padding:6rem 0;position:relative;overflow:hidden}
+    .hero-content{max-width:800px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem}
+    .hero h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:800;line-height:1.1;letter-spacing:-.02em}
+    .hero h2 span{background:linear-gradient(135deg,var(--primary),var(--logo-blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
+    .hero p{font-size:1.2rem;color:var(--muted);line-height:1.6;max-width:600px}
+    .hero-actions{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:1rem}
+    .trust-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;padding:3rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.01)}
+    .trust-item{display:flex;align-items:center;gap:1rem;padding:1rem}
+    .trust-icon{width:3.5rem;height:3.5rem;border-radius:12px;background:rgba(86,240,196,.1);color:var(--primary);display:grid;place-items:center}
+    .trust-text h4{font-family:"Space Grotesk",sans-serif;font-size:1.05rem;margin-bottom:.25rem}
+    .trust-text p{color:var(--muted);font-size:.85rem}
+    .section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;gap:2rem}
+    .section-title h2{font-family:"Space Grotesk",sans-serif;font-size:2.5rem;margin-top:.5rem}
+    .products{padding:5rem 0}
+    .product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+    .product-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;transition:all .4s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
+    .product-card:hover{transform:translateY(-8px);border-color:rgba(86,240,196,.3);box-shadow:0 20px 40px rgba(0,0,0,.4),0 0 20px rgba(86,240,196,.1)}
+    .product-img-wrap{position:relative;aspect-ratio:4/5;overflow:hidden;background:#111827}
+    .product-img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;opacity:.9}
+    .product-card:hover .product-img{transform:scale(1.05);opacity:1}
+    .product-badge{position:absolute;top:1rem;left:1rem;background:rgba(11,16,32,.8);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);padding:.4rem .8rem;border-radius:99px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;z-index:2}
+    .badge-sale{color:var(--secondary);border-color:rgba(255,142,83,.3)}
+    .badge-new{color:var(--primary);border-color:rgba(86,240,196,.3)}
+    .product-actions{position:absolute;bottom:1rem;right:1rem;display:flex;flex-direction:column;gap:.5rem;transform:translateX(150%);transition:transform .4s cubic-bezier(.16,1,.3,1);z-index:2}
+    .product-card:hover .product-actions{transform:translateX(0)}
+    .action-btn{width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(11,16,32,.9);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);color:var(--text);display:grid;place-items:center;transition:all .2s ease}
+    .action-btn:hover{background:var(--primary);color:#000;border-color:var(--primary);transform:scale(1.1)}
+    .product-info{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+    .product-category{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+    .product-title{font-family:"Space Grotesk",sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:1rem;line-height:1.4}
+    .product-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+    .product-price{font-size:1.25rem;font-weight:800;color:var(--primary);display:flex;align-items:center;gap:.5rem}
+    .price-old{font-size:.9rem;color:var(--muted);text-decoration:line-through;font-weight:500}
+    .catalog-tabs{display:flex;gap:1rem;margin-bottom:2.5rem;border-bottom:1px solid var(--line);padding-bottom:1.5rem;overflow-x:auto;scrollbar-width:none}
+    .catalog-tabs::-webkit-scrollbar{display:none}
+    .tab-btn{padding:.75rem 2rem;border-radius:99px;background:rgba(255,255,255,.03);border:1px solid var(--line);color:var(--muted);font-weight:700;font-size:1rem;white-space:nowrap;transition:all .3s ease}
+    .tab-btn:hover{background:rgba(255,255,255,.08);color:var(--text)}
+    .tab-btn.active{background:rgba(86,240,196,.1);color:var(--primary);border-color:rgba(86,240,196,.3);box-shadow:0 0 15px rgba(86,240,196,.1)}
+    .tab-content{display:none;animation:fadeIn .5s ease}
+    .tab-content.active{display:block}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+    .collections-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+    .collection-card{position:relative;height:400px;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);display:flex;align-items:flex-end;padding:2rem}
+    .collection-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;z-index:1}
+    .collection-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to top,rgba(7,11,20,.9) 0%,rgba(7,11,20,.2) 50%,transparent 100%);z-index:2}
+    .collection-card:hover .collection-bg{transform:scale(1.08)}
+    .collection-info{position:relative;z-index:3;width:100%}
+    .collection-info h3{font-family:"Space Grotesk",sans-serif;font-size:1.8rem;margin-bottom:.5rem}
+    .collection-info p{color:var(--muted);margin-bottom:1.5rem}
+    .contactanos{padding:5rem 0}
+    .contactanos-inner{background:var(--panel-strong);border:1px solid var(--line);border-radius:var(--radius-xl);padding:4rem;text-align:center;position:relative;overflow:hidden}
+    .contactanos-inner::before{content:'';position:absolute;top:-40%;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(86,240,196,.08) 0%,transparent 70%);pointer-events:none}
+    .contactanos-inner .eyebrow{margin-bottom:1rem}
+    .contactanos-inner h2{font-family:"Space Grotesk",sans-serif;font-size:2.5rem;margin-bottom:1rem}
+    .contactanos-inner > p{color:var(--muted);font-size:1.1rem;max-width:550px;margin:0 auto 3rem;line-height:1.6}
+    .contact-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;max-width:640px;margin:0 auto}
+    .contact-card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem;transition:all .3s ease}
+    .contact-card:hover{background:rgba(255,255,255,.06);transform:translateY(-4px)}
+    .contact-card-icon{width:3.5rem;height:3.5rem;border-radius:50%;display:grid;place-items:center;font-size:1.5rem}
+    .icon-ws{background:rgba(37,211,102,.15)}
+    .icon-gmail{background:rgba(234,67,53,.15)}
+    .contact-card h3{font-family:"Space Grotesk",sans-serif;font-size:1.1rem}
+    .contact-card p{color:var(--muted);font-size:.9rem;text-align:center}
+    .btn-ws{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border-radius:99px;background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;font-weight:800;font-size:.95rem;transition:all .3s ease;margin-top:.5rem}
+    .btn-ws:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(37,211,102,.35)}
+    .btn-gmail{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;border-radius:99px;background:linear-gradient(135deg,#ea4335,#c5221f);color:#fff;font-weight:800;font-size:.95rem;transition:all .3s ease;margin-top:.5rem}
+    .btn-gmail:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(234,67,53,.35)}
+    .newsletter{padding:5rem 0}
+    .newsletter-inner{background:var(--panel-strong);border:1px solid var(--line);border-radius:var(--radius-xl);padding:4rem;display:flex;align-items:center;justify-content:space-between;gap:4rem;position:relative;overflow:hidden}
+    .newsletter-inner::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(122,162,255,.1) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+    .newsletter-content{flex:1;max-width:500px}
+    .newsletter h2{font-family:"Space Grotesk",sans-serif;font-size:2.2rem;margin-bottom:1rem}
+    .newsletter p{color:var(--muted);line-height:1.6}
+    .newsletter-form{flex:1;max-width:500px;display:flex;gap:.5rem;background:rgba(0,0,0,.2);padding:.5rem;border-radius:99px;border:1px solid rgba(255,255,255,.1)}
+    .newsletter-form input{flex:1;background:transparent;border:none;padding:0 1.5rem;color:var(--text);font-family:inherit;font-size:1rem;outline:none}
+    .newsletter-form button{padding:1rem 2rem;border-radius:99px;background:var(--text);color:var(--bg);font-weight:800;transition:all .3s ease}
+    .newsletter-form button:hover{background:var(--primary)}
+    footer{background:#060913;border-top:1px solid var(--line);padding:5rem 0 2rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
+    .footer-col h3{font-family:"Space Grotesk",sans-serif;font-size:1.1rem;margin-bottom:1.5rem;color:#fff}
+    .footer-col p{color:var(--muted);line-height:1.6;margin-bottom:1.5rem;max-width:300px}
+    .social-links{display:flex;gap:1rem}
+    .social-links a{width:2.5rem;height:2.5rem;border-radius:50%;background:rgba(255,255,255,.05);display:grid;place-items:center;transition:all .3s;color:var(--muted)}
+    .social-links a:hover{background:var(--logo-blue);color:#fff;transform:translateY(-3px)}
+    .footer-links{display:flex;flex-direction:column;gap:1rem}
+    .footer-links a{color:var(--muted);transition:color .2s;width:fit-content}
+    .footer-links a:hover{color:var(--primary)}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+    #toast-container{position:fixed;bottom:2rem;right:2rem;display:flex;flex-direction:column;gap:1rem;z-index:1000;pointer-events:none}
+    .toast{background:var(--panel-strong);border:1px solid rgba(86,240,196,.3);backdrop-filter:blur(12px);padding:1rem 1.5rem;border-radius:var(--radius-md);display:flex;align-items:center;gap:1rem;box-shadow:0 10px 30px rgba(0,0,0,.5);transform:translateX(120%);opacity:0;transition:all .4s cubic-bezier(.68,-.55,.265,1.55)}
+    .toast.show{transform:translateX(0);opacity:1}
+    .toast-icon{color:var(--primary);display:grid;place-items:center}
+    .toast-content h4{font-size:.95rem;margin-bottom:.2rem}
+    .toast-content p{font-size:.85rem;color:var(--muted)}
+    .admin-fab{position:fixed;bottom:2rem;left:2rem;z-index:999;display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.4rem;border-radius:99px;background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid rgba(99,102,241,.4);color:#c7d2fe;font-weight:700;font-size:.85rem;letter-spacing:.04em;cursor:pointer;transition:all .3s ease;box-shadow:0 8px 24px rgba(0,0,0,.5);text-decoration:none}
+    .admin-fab:hover{background:linear-gradient(135deg,#2d3a52,#1e293b);border-color:rgba(99,102,241,.7);color:#fff;transform:translateY(-2px);box-shadow:0 12px 30px rgba(99,102,241,.3)}
+    .admin-fab-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.4);animation:fab-dot-pulse 2s infinite}
+    @keyframes fab-dot-pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.4)}70%{box-shadow:0 0 0 7px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+    /* MOBILE DRAWER */
+    .mobile-drawer{position:fixed;top:0;right:0;width:min(320px,85vw);height:100%;background:var(--panel-strong);border-left:1px solid var(--line);z-index:9000;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .35s cubic-bezier(.16,1,.3,1);box-shadow:-20px 0 60px rgba(0,0,0,.6)}
+    .mobile-drawer.open{transform:translateX(0)}
+    .drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:8999;opacity:0;pointer-events:none;transition:opacity .3s ease}
+    .drawer-backdrop.open{opacity:1;pointer-events:auto}
+    .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:1.5rem;border-bottom:1px solid var(--line)}
+    .drawer-brand{display:flex;align-items:center;gap:.75rem}
+    .drawer-brand-mark{width:2.4rem;height:2.4rem;border-radius:10px;background:linear-gradient(135deg,#3b82f6,#0f172a);display:grid;place-items:center;font-family:"Space Grotesk",sans-serif;font-weight:800;font-size:.95rem;color:#fff}
+    .drawer-brand-name{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:1rem;color:#fff}
+    .drawer-close{width:2.2rem;height:2.2rem;border-radius:var(--radius-sm);background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--muted);display:grid;place-items:center;transition:all .2s;cursor:pointer}
+    .drawer-close:hover{background:rgba(240,86,86,.12);color:#f05656}
+    .drawer-search{padding:1.25rem 1.5rem;border-bottom:1px solid var(--line)}
+    .drawer-search-inner{display:flex;align-items:center;gap:.7rem;padding:.8rem 1rem;border-radius:var(--radius-sm);background:rgba(255,255,255,.04);border:1px solid var(--line)}
+    .drawer-search-inner input{background:transparent;border:none;outline:none;color:var(--text);font-family:inherit;font-size:.9rem;flex:1}
+    .drawer-search-inner input::placeholder{color:var(--muted)}
+    .drawer-nav{flex:1;padding:1.25rem 1rem;display:flex;flex-direction:column;gap:.35rem;overflow-y:auto}
+    .drawer-nav a{display:flex;align-items:center;justify-content:space-between;padding:.95rem 1.1rem;border-radius:var(--radius-sm);color:var(--muted);font-weight:600;font-size:.95rem;border:1px solid transparent;transition:all .2s;text-decoration:none}
+    .drawer-nav a:hover,.drawer-nav a.active{background:rgba(86,240,196,.08);color:var(--primary);border-color:rgba(86,240,196,.15)}
+    .drawer-footer{padding:1.5rem;border-top:1px solid var(--line);display:flex;gap:.75rem}
+    .drawer-cart-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.9rem;border-radius:var(--radius-sm);background:linear-gradient(135deg,var(--primary),var(--accent));color:#060c1a;font-weight:800;font-size:.9rem;cursor:pointer;border:none}
+    .drawer-cart-badge{background:#060c1a;color:var(--primary);font-size:.7rem;font-weight:800;padding:.15rem .45rem;border-radius:99px;min-width:1.2rem;text-align:center}
+    .drawer-admin-btn{display:flex;align-items:center;gap:.5rem;padding:.9rem 1.1rem;border-radius:var(--radius-sm);background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.3);color:#c7d2fe;font-weight:700;font-size:.85rem;white-space:nowrap;text-decoration:none}
+    /* RESPONSIVE 1024px */
+    @media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr;gap:3rem}.newsletter-inner{flex-direction:column;text-align:center;padding:3rem 2rem}.section-header{flex-direction:column;align-items:flex-start;gap:1rem}.hero{padding:5rem 0}.products{padding:4rem 0}.contactanos{padding:4rem 0}.newsletter{padding:4rem 0}}
+    /* RESPONSIVE 768px */
+    @media(max-width:768px){.topbar{display:none}.nav-links{display:none}.search-box{display:none}.mobile-menu-btn{display:grid}.hero{padding:3.5rem 0}.hero h2{font-size:clamp(2.2rem,8vw,3rem)}.hero p{font-size:1rem}.hero-actions{flex-direction:column;width:100%;gap:1rem}.hero-actions>*{width:100%;text-align:center;justify-content:center}.products{padding:3rem 0}.section-title h2{font-size:1.9rem}.section-header{margin-bottom:2rem}.product-grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.25rem}.catalog-tabs{gap:.6rem;margin-bottom:2rem;padding-bottom:1.25rem}.tab-btn{padding:.6rem 1.25rem;font-size:.88rem}.collections-grid{grid-template-columns:1fr;gap:1.25rem}.collection-card{height:300px}.collection-info h3{font-size:1.4rem}.contactanos{padding:3rem 0}.contactanos-inner{padding:2.25rem 1.5rem}.contactanos-inner h2{font-size:1.75rem}.contactanos-inner>p{font-size:.95rem;margin-bottom:2rem}.newsletter{padding:3rem 0}.newsletter-inner{padding:2.5rem 1.5rem;gap:2rem}.newsletter h2{font-size:1.75rem}.newsletter-form{flex-direction:column;background:transparent;border:none;padding:0;width:100%}.newsletter-form input{background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.1);padding:1rem 1.25rem;border-radius:var(--radius-md)}.newsletter-form button{border-radius:var(--radius-md);padding:1rem 1.5rem}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}#toast-container{bottom:1rem;right:1rem;left:1rem}.toast{width:100%}.admin-fab{bottom:1.25rem;left:1.25rem;padding:.7rem 1rem;font-size:.78rem}}
+    /* RESPONSIVE 480px */
+    @media(max-width:480px){.container{padding:0 1rem}.hero{padding:2.75rem 0}.hero h2{font-size:1.95rem;line-height:1.15}.hero p{font-size:.9rem}.product-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.product-info{padding:1rem}.product-title{font-size:.92rem}.product-price{font-size:1.05rem}.section-title h2{font-size:1.5rem}.catalog-tabs{gap:.4rem}.tab-btn{padding:.5rem .9rem;font-size:.8rem}.collections-grid{grid-template-columns:1fr}.collection-card{height:260px}.collection-info h3{font-size:1.2rem}.contactanos-inner{padding:1.75rem 1.1rem}.contactanos-inner h2{font-size:1.4rem}.newsletter-content h2{font-size:1.4rem}.newsletter-content>p{display:none}.trust-item{flex-direction:column;text-align:center;padding:.75rem}.footer-col p{max-width:100%}}
+  </style>
+</head>
+<body id="inicio">
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">✨ <strong>Envío gratuito</strong> en todos los pedidos superiores a $100.</div>
+      <div class="topbar-right">
+        <a href="#">Ayuda y Soporte</a>
+        <a href="#">Seguimiento de Pedido</a>
+        <a href="#">ES / USD</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <div class="brand-mark">TN</div>
+        <div>
+          <h1>TrendNova</h1>
+          <span style="display:block;margin-top:.2rem;color:var(--muted);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;">Premium Urban</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#inicio" class="nav-item active">Inicio</a>
+        <a href="#catalogo" class="nav-item">Catálogo</a>
+        <a href="#novedades" class="nav-item">Novedades</a>
+        <a href="#colecciones" class="nav-item">Colecciones</a>
+        <a href="#contactanos" class="nav-item">Contáctanos</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="search-box">
+          <i data-lucide="search" size="18"></i>
+          <input type="text" placeholder="Buscar productos...">
+        </div>
+        <button class="icon-btn" aria-label="Cuenta"><i data-lucide="user" size="20"></i></button>
+        <button class="icon-btn" aria-label="Carrito">
+          <i data-lucide="shopping-bag" size="20"></i>
+          <span class="badge" id="cart-count">0</span>
+        </button>
+        <button class="icon-btn mobile-menu-btn" id="menu-open-btn" aria-label="Menu"><i data-lucide="menu" size="20"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER -->
+  <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeDrawer()"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <div class="drawer-brand-mark">TN</div>
+        <span class="drawer-brand-name">TrendNova</span>
+      </div>
+      <button class="drawer-close" onclick="closeDrawer()"><i data-lucide="x" size="16"></i></button>
+    </div>
+    <div class="drawer-search">
+      <div class="drawer-search-inner">
+        <i data-lucide="search" size="16"></i>
+        <input type="text" placeholder="Buscar productos...">
+      </div>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#inicio" class="active" onclick="closeDrawer()">Inicio <i data-lucide="chevron-right" size="15"></i></a>
+      <a href="#catalogo" onclick="closeDrawer()">Catálogo <i data-lucide="chevron-right" size="15"></i></a>
+      <a href="#novedades" onclick="closeDrawer()">Novedades <i data-lucide="chevron-right" size="15"></i></a>
+      <a href="#colecciones" onclick="closeDrawer()">Colecciones <i data-lucide="chevron-right" size="15"></i></a>
+      <a href="#contactanos" onclick="closeDrawer()">Contáctanos <i data-lucide="chevron-right" size="15"></i></a>
+      <a href="productos.html" onclick="closeDrawer()">Ver catálogo completo <i data-lucide="external-link" size="15"></i></a>
+    </nav>
+    <div class="drawer-footer">
+      <button class="drawer-cart-btn" onclick="closeDrawer()">
+        <i data-lucide="shopping-bag" size="17"></i> Carrito
+        <span class="drawer-cart-badge" id="drawer-cart-count">0</span>
+      </button>
+      <a href="admin.html" class="drawer-admin-btn">
+        <i data-lucide="settings" size="16"></i> Admin
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="pill"><i data-lucide="zap" size="14" style="color:var(--secondary)"></i> Nueva Coleccion Cyber 2024</div>
+        <h2>Redefine tu estilo.<br><span>Domina la ciudad.</span></h2>
+        <p>Explora la nueva frontera de la moda urbana. Materiales premium, disenos vanguardistas y confort absoluto para quienes dictan las reglas.</p>
+        <div class="hero-actions">
+          <a href="#catalogo" class="btn-primary">Explorar Catalogo <i data-lucide="arrow-right" size="18"></i></a>
+          <a href="#colecciones" class="btn-secondary">Ver Colecciones</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="trust-row">
+        <div class="trust-item"><div class="trust-icon"><i data-lucide="truck" size="24"></i></div><div class="trust-text"><h4>Envio Express</h4><p>Entrega en 24/48 horas</p></div></div>
+        <div class="trust-item"><div class="trust-icon"><i data-lucide="shield-check" size="24"></i></div><div class="trust-text"><h4>Calidad Premium</h4><p>Materiales garantizados</p></div></div>
+        <div class="trust-item"><div class="trust-icon"><i data-lucide="refresh-cw" size="24"></i></div><div class="trust-text"><h4>Devoluciones Flexibles</h4><p>30 dias para cambios</p></div></div>
+        <div class="trust-item"><div class="trust-icon"><i data-lucide="credit-card" size="24"></i></div><div class="trust-text"><h4>Pago Seguro</h4><p>100% encriptado y seguro</p></div></div>
+      </div>
+    </div>
+
+    <section id="catalogo" class="products container">
+      <div class="section-header">
+        <div class="section-title"><div class="eyebrow">Explora</div><h2>Catalogo Interactivo</h2></div>
+        <a href="productos.html" class="btn-secondary">Ver catalogo completo <i data-lucide="arrow-right" size="18"></i></a>
+      </div>
+      <div class="catalog-tabs">
+        <button class="tab-btn active" onclick="openTab(event,'tab-ropa')">Ropa Urbana</button>
+        <button class="tab-btn" onclick="openTab(event,'tab-calzado')">Calzado</button>
+        <button class="tab-btn" onclick="openTab(event,'tab-exclusivo')">Edicion Exclusiva</button>
+      </div>
+
+      <div id="tab-ropa" class="tab-content active">
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-new">Nuevo</span>
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="Chaqueta Neo-Tokyo" class="product-img">
+              <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button><button class="action-btn"><i data-lucide="eye" size="18"></i></button></div>
+            </div>
+            <div class="product-info"><div class="product-category">Outerwear</div><h3 class="product-title">Chaqueta Neo-Tokyo Reflectiva</h3><div class="product-meta"><div class="product-price">$189.00</div><button class="icon-btn" onclick="addToCart('Chaqueta Neo-Tokyo',189)"><i data-lucide="plus" size="18"></i></button></div></div>
+          </article>
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-sale">-20% OFF</span>
+              <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=600&q=80" alt="Camiseta Oversize" class="product-img">
+              <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button><button class="action-btn"><i data-lucide="eye" size="18"></i></button></div>
+            </div>
+            <div class="product-info"><div class="product-category">Streetwear</div><h3 class="product-title">Camiseta Oversize "Void"</h3><div class="product-meta"><div class="product-price">$45.00 <span class="price-old">$56.00</span></div><button class="icon-btn" onclick="addToCart('Camiseta Oversize',45)"><i data-lucide="plus" size="18"></i></button></div></div>
+          </article>
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80" alt="Pantalon Cargo" class="product-img">
+              <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button><button class="action-btn"><i data-lucide="eye" size="18"></i></button></div>
+            </div>
+            <div class="product-info"><div class="product-category">Bottoms</div><h3 class="product-title">Pantalon Cargo Tactico V2</h3><div class="product-meta"><div class="product-price">$89.00</div><button class="icon-btn" onclick="addToCart('Pantalon Cargo',89)"><i data-lucide="plus" size="18"></i></button></div></div>
+          </article>
+        </div>
+      </div>
+
+      <div id="tab-calzado" class="tab-content">
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=600&q=80" alt="Zapatillas Quantum" class="product-img">
+              <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+            </div>
+            <div class="product-info"><div class="product-category">Footwear</div><h3 class="product-title">Zapatillas Quantum X1</h3><div class="product-meta"><div class="product-price">$210.00</div><button class="icon-btn" onclick="addToCart('Zapatillas Quantum',210)"><i data-lucide="plus" size="18"></i></button></div></div>
+          </article>
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-sale">-15% OFF</span>
+              <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Drift Low" class="product-img">
+              <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+            </div>
+            <div class="product-info"><div class="product-category">Footwear</div><h3 class="product-title">Drift Low Canvas</h3><div class="product-meta"><div class="product-price">$74.99 <span class="price-old">$99.99</span></div><button class="icon-btn" onclick="addToCart('Drift Low Canvas',74.99)"><i data-lucide="plus" size="18"></i></button></div></div>
+          </article>
+          <article class="product-card">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-new">Nuevo</span>
+              <img src="https://images.unsplash.com/photo-1605733513597-a8f8341084e6?auto=format&fit=crop&w=600&q=80" alt="Nova Platform" class="product-img">
+              <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+            </div>
+            <div class="product-info"><div class="product-category">Footwear</div><h3 class="product-title">Nova Platform Low</h3><div class="product-meta"><div class="product-price">$119.99</div><button class="icon-btn" onclick="addToCart('Nova Platform Low',119.99)"><i data-lucide="plus" size="18"></i></button></div></div>
+          </article>
+        </div>
+      </div>
+
+      <div id="tab-exclusivo" class="tab-content">
+        <div class="product-grid">
+          <article class="product-card" style="border-color:var(--primary)">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-new" style="background:var(--primary);color:#000">Edicion Limitada</span>
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Pack Night City" class="product-img">
+              <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+            </div>
+            <div class="product-info"><div class="product-category">Set Completo</div><h3 class="product-title">Pack "Night City Runner"</h3><div class="product-meta"><div class="product-price">$350.00</div><button class="icon-btn" onclick="addToCart('Pack Night City',350)"><i data-lucide="plus" size="18"></i></button></div></div>
+          </article>
+          <article class="product-card" style="border-color:rgba(255,142,83,.4)">
+            <div class="product-img-wrap">
+              <span class="product-badge badge-sale">Solo 4 en stock</span>
+              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=80" alt="Stealth Bomber" class="product-img">
+              <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+            </div>
+            <div class="product-info"><div class="product-category">Outerwear - Limitado</div><h3 class="product-title">Stealth Bomber Jacket</h3><div class="product-meta"><div class="product-price">$149.99</div><button class="icon-btn" onclick="addToCart('Stealth Bomber',149.99)"><i data-lucide="plus" size="18"></i></button></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="novedades" class="products container" style="padding-top:2rem">
+      <div class="section-header">
+        <div class="section-title"><div class="eyebrow">Tendencias</div><h2>Lanzamientos Recientes</h2></div>
+        <a href="productos.html" class="btn-secondary">Ver todos</a>
+      </div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-img-wrap">
+            <span class="product-badge badge-new">HOT</span>
+            <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" alt="Bomber TechWear" class="product-img">
+            <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+          </div>
+          <div class="product-info"><div class="product-category">Outerwear</div><h3 class="product-title">Bomber Jacket "TechWear"</h3><div class="product-meta"><div class="product-price">$165.00</div><button class="icon-btn" onclick="addToCart('Bomber TechWear',165)"><i data-lucide="plus" size="18"></i></button></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=600&q=80" alt="Nova Pulse Hoodie" class="product-img">
+            <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+          </div>
+          <div class="product-info"><div class="product-category">Hoodies</div><h3 class="product-title">Nova Pulse Hoodie</h3><div class="product-meta"><div class="product-price">$79.99</div><button class="icon-btn" onclick="addToCart('Nova Pulse Hoodie',79.99)"><i data-lucide="plus" size="18"></i></button></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-img-wrap">
+            <span class="product-badge badge-sale">-15%</span>
+            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80" alt="Street Core Hoodie" class="product-img">
+            <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+          </div>
+          <div class="product-info"><div class="product-category">Hoodies</div><h3 class="product-title">Street Core Hoodie</h3><div class="product-meta"><div class="product-price">$64.99 <span class="price-old">$76.99</span></div><button class="icon-btn" onclick="addToCart('Street Core Hoodie',64.99)"><i data-lucide="plus" size="18"></i></button></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="colecciones" class="products container">
+      <div class="section-header"><div class="section-title"><div class="eyebrow">Lookbooks</div><h2>Nuestras Colecciones</h2></div></div>
+      <div class="collections-grid">
+        <div class="collection-card">
+          <img src="https://images.unsplash.com/photo-1611601679655-7c8bc197f0c6?auto=format&fit=crop&w=800&q=80" alt="Cyberpunk" class="collection-bg">
+          <div class="collection-overlay"></div>
+          <div class="collection-info"><h3>Cyberpunk Series</h3><p>Disenos vanguardistas inspirados en la estetica distopica de Tokyo nocturno.</p><a href="productos.html" class="btn-primary" style="padding:.6rem 1.2rem;font-size:.9rem">Explorar</a></div>
+        </div>
+        <div class="collection-card">
+          <img src="https://images.unsplash.com/photo-1550639525-c97d455acf70?auto=format&fit=crop&w=800&q=80" alt="Urban Ninja" class="collection-bg">
+          <div class="collection-overlay"></div>
+          <div class="collection-info"><h3>Urban Ninja</h3><p>Funcionalidad tactica combinada con siluetas asimetricas y minimalistas.</p><a href="productos.html" class="btn-primary" style="padding:.6rem 1.2rem;font-size:.9rem">Explorar</a></div>
+        </div>
+        <div class="collection-card">
+          <img src="https://images.unsplash.com/photo-1523398002811-999aa8fa9df2?auto=format&fit=crop&w=800&q=80" alt="Street Classics" class="collection-bg">
+          <div class="collection-overlay"></div>
+          <div class="collection-info"><h3>Street Classics</h3><p>Las prendas esenciales y atemporales que no pueden faltar en tu guardarropa.</p><a href="productos.html" class="btn-primary" style="padding:.6rem 1.2rem;font-size:.9rem">Explorar</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="accesorios" class="products container">
+      <div class="section-header"><div class="section-title"><div class="eyebrow">Complementos</div><h2>Accesorios</h2></div></div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80" alt="Mochila Tactica" class="product-img">
+            <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+          </div>
+          <div class="product-info"><div class="product-category">Bags</div><h3 class="product-title">Mochila Tactica Modular</h3><div class="product-meta"><div class="product-price">$120.00</div><button class="icon-btn" onclick="addToCart('Mochila Tactica',120)"><i data-lucide="plus" size="18"></i></button></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=600&q=80" alt="Gorra Nova" class="product-img">
+            <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+          </div>
+          <div class="product-info"><div class="product-category">Headwear</div><h3 class="product-title">Gorra Snapback "Nova"</h3><div class="product-meta"><div class="product-price">$28.00</div><button class="icon-btn" onclick="addToCart('Gorra Nova',28)"><i data-lucide="plus" size="18"></i></button></div></div>
+        </article>
+        <article class="product-card">
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80" alt="Nova Mini Wallet" class="product-img">
+            <div class="product-actions"><button class="action-btn"><i data-lucide="heart" size="18"></i></button></div>
+          </div>
+          <div class="product-info"><div class="product-category">Wallets</div><h3 class="product-title">Nova Mini Wallet</h3><div class="product-meta"><div class="product-price">$34.99</div><button class="icon-btn" onclick="addToCart('Nova Mini Wallet',34.99)"><i data-lucide="plus" size="18"></i></button></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contactanos" class="contactanos container">
+      <div class="contactanos-inner">
+        <div class="eyebrow"><i data-lucide="message-circle" size="14"></i> Atencion al cliente</div>
+        <h2>Tienes alguna pregunta?</h2>
+        <p>Estamos listos para ayudarte. Escribenos por WhatsApp o correo electronico y te responderemos a la brevedad.</p>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-card-icon icon-ws">💬</div>
+            <h3>WhatsApp</h3>
+            <p>Respuesta rapida en minutos. Lunes a sabado 9am - 8pm.</p>
+            <a href="https://wa.me/50763565201?text=Hola%2C%20me%20interesa%20un%20producto%20de%20Trend%20Nova" target="_blank" rel="noopener noreferrer" class="btn-ws"><i data-lucide="message-circle" size="18"></i> Escribir por WS</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon icon-gmail">✉️</div>
+            <h3>Correo</h3>
+            <p>Para consultas detalladas. Respondemos en 24 hrs.</p>
+            <a href="mailto:Jhosmamacayo@gmail.com?subject=Consulta%20Trend%20Nova" class="btn-gmail"><i data-lucide="mail" size="18"></i> Enviar correo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter container">
+      <div class="newsletter-inner">
+        <div class="newsletter-content">
+          <h2>Unete a la resistencia.</h2>
+          <p>Suscribete a nuestro boletin para acceder a drops exclusivos, ofertas anticipadas y contenido detras de escena de nuestras colecciones.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+          <input type="email" placeholder="Tu direccion de correo" required>
+          <button type="submit">Suscribirme</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom:1.5rem"><div class="brand-mark" style="width:2rem;height:2rem;font-size:.9rem;border-radius:8px">TN</div><h1 style="font-size:1.1rem;color:white">TrendNova</h1></div>
+          <p>Moda urbana disenada para romper esquemas. Combinamos tecnologia textil con estetica cyberpunk para los creadores del manana.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" size="18"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" size="18"></i></a>
+            <a href="#" aria-label="TikTok"><i data-lucide="video" size="18"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Tienda</h3>
+          <div class="footer-links">
+            <a href="#catalogo">Toda la ropa</a>
+            <a href="#accesorios">Accesorios</a>
+            <a href="productos.html">Catalogo completo</a>
+            <a href="#">Tarjetas de regalo</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Soporte</h3>
+          <div class="footer-links">
+            <a href="#">FAQ</a>
+            <a href="#">Envios y Entregas</a>
+            <a href="#">Devoluciones</a>
+            <a href="#">Guia de tallas</a>
+            <a href="#contactanos">Contacto</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>Contacto directo</h3>
+          <div class="footer-links">
+            <a href="https://wa.me/50763565201" target="_blank" rel="noopener noreferrer">+507 6356-5201</a>
+            <a href="mailto:Jhosmamacayo@gmail.com">Jhosmamacayo@gmail.com</a>
+          </div>
+          <p style="margin-top:1rem;font-size:.8rem">📍 Panama</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 TrendNova. Todos los derechos reservados.</p>
+        <div style="display:flex;gap:1rem"><i data-lucide="credit-card" size="24" style="opacity:.5"></i><i data-lucide="smartphone" size="24" style="opacity:.5"></i></div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="admin.html" class="admin-fab" title="Panel de Administracion">
+    <div class="admin-fab-dot"></div>
+    <i data-lucide="settings" size="16"></i>
+    ADMIN
+  </a>
+
+  <div id="toast-container"></div>
+
+  <script>
+    lucide.createIcons();
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const id = this.getAttribute('href');
+        if (id === '#') return;
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth' });
+          document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+          if (this.classList.contains('nav-item')) this.classList.add('active');
+        }
+      });
+    });
+
+    function openTab(evt, tabName) {
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+      evt.currentTarget.classList.add('active');
+    }
+
+    let cartCount = 0;
+    const cartBadge = document.getElementById('cart-count');
+
+    function showToast(title, message) {
+      const tc = document.getElementById('toast-container');
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.innerHTML = '<div class="toast-icon"><i data-lucide="check-circle" size="24"></i></div><div class="toast-content"><h4>' + title + '</h4><p>' + message + '</p></div>';
+      tc.appendChild(t);
+      lucide.createIcons();
+      setTimeout(() => t.classList.add('show'), 10);
+      setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 400); }, 3000);
+    }
+
+    // ---- MOBILE DRAWER ----
+    function openDrawer() {
+      document.getElementById('mobile-drawer').classList.add('open');
+      document.getElementById('drawer-backdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      lucide.createIcons();
+    }
+    function closeDrawer() {
+      document.getElementById('mobile-drawer').classList.remove('open');
+      document.getElementById('drawer-backdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('menu-open-btn').addEventListener('click', openDrawer);
+
+    // keep drawer cart badge in sync
+    const drawerCartBadge = document.getElementById('drawer-cart-count');
+
+    function addToCart(name, price) {
+      cartCount++;
+      cartBadge.textContent = cartCount;
+      drawerCartBadge.textContent = cartCount;
+      cartBadge.style.transform = 'scale(1.5)';
+      setTimeout(() => { cartBadge.style.transform = 'scale(1)'; }, 200);
+      showToast('Anadido al carrito', name + ' - $' + price.toFixed(2));
+    }
+
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const input = e.target.querySelector('input');
+      if (input.value) {
+        showToast('Suscrito con exito!', 'Confirmacion enviada a ' + input.value);
+        input.value = '';
+      }
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.product-card, .collection-card, .trust-item, .contact-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
